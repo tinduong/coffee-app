@@ -113,6 +113,7 @@ const App: React.FC = () => {
             </div>
           ))}
         </div>
+        {/* This is the comment  */}
         <div className={`coffee-display ${animate ? 'animate' : ''}`}>
           <p>Base: Coffee</p>
           {condimentsList.length > 0 && (

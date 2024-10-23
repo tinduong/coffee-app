@@ -1,10 +1,10 @@
 // Coffee.ts
-export interface Coffee {
+export interface ICoffee {
     getDescription(): string;
     cost(): number;
 }
 
-export class SimpleCoffee implements Coffee {
+export class SimpleCoffee implements ICoffee {
     getDescription(): string {
         return 'Coffee';
     }
@@ -14,11 +14,11 @@ export class SimpleCoffee implements Coffee {
     }
 }
 
+// Plain coffee
+export abstract class CoffeeDecorator implements ICoffee {
+    protected decoratedCoffee: ICoffee;
 
-export abstract class CoffeeDecorator implements Coffee {
-    protected decoratedCoffee: Coffee;
-
-    constructor(decoratedCoffee: Coffee) {
+    constructor(decoratedCoffee: ICoffee) {
         this.decoratedCoffee = decoratedCoffee;
     }
 
@@ -33,7 +33,6 @@ export abstract class CoffeeDecorator implements Coffee {
 
 
 // MilkDecorator.ts
-
 export class MilkDecorator extends CoffeeDecorator {
   getDescription(): string {
     return `${super.getDescription()} + Milk`;
